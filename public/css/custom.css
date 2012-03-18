@@ -505,6 +505,10 @@ table {
     border-spacing: 0;
 }
 /* IE8向け */
+html>/**/body {
+	font-size: 82%;
+	font-family: "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+} /* for ie8 */
 td span.label{
   font-size: 10px\9;
 }
