@@ -1,12 +1,11 @@
-body{
-  font-family/*\**/: verdana, arial, helvetica, sans-serif; 
+/* IE8向け */
+html>/**/body .small {
+font-size: 70%¥9;
 }
-html>/**/body {font-size/*\**/: small\9;
 section{
   margin-top: -120px;
   padding-top:135px;
 }
-
 .subhead{
  font-size: 30px;
  line-height: 30px;
