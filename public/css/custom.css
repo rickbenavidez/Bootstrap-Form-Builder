@@ -1,4 +1,7 @@
 /* IE8向け */
+table{
+ table-layout: fixed;
+}
 html>/**/body {
   color: green¥9;
 }
