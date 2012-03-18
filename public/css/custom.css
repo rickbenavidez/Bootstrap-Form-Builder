@@ -15,7 +15,7 @@ section{
  background-color: #44aaee
 }
 td.span1{
-  width: 55px;
+  width: 52px;
 }
 .navbar .nav > li > a{
  padding: 21px 20px 22px;
@@ -69,7 +69,6 @@ text-align: center;
   margin-left: 30px;
 }
 
-
 tr > td:nth-child(1) {
  font-weight: bold;
 }
@@ -82,4 +81,7 @@ tr > td:nth-child(1) {
 
 .service-sub{
   margin-top: 47px;
+}
+td .label{
+   font-size: 10px;
 }
