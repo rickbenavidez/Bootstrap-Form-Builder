@@ -1,5 +1,5 @@
 body{
-  font-family : 'ＭＳ Ｐゴシック',sans-serif;
+  font-family/*\**/: verdana, arial, helvetica, sans-serif; 
 }
 section{
   margin-top: -120px;
