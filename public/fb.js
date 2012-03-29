@@ -11,7 +11,7 @@ $(document).ready(function(){
     var $this = $(this);
     var delays = {
       main: 0,
-    form: 120
+      form: 120
     }
     var type;
 
@@ -110,7 +110,6 @@ $(document).ready(function(){
         $("#target .component").popover({trigger: "manual"});
         $temp.remove();
         genSource();
-
       });
     }, delays[type]);
 
@@ -228,14 +227,18 @@ $(document).ready(function(){
         var checkboxes = $(e).val().split("\n");
         $(value).html("\n      <!-- Multiple Checkboxes -->");
         $.each(checkboxes, function(i,e){
-          $(value).append('\n      <label class="checkbox">\n        <input type="checkbox" value="'+e+'">\n        '+e+'\n      </label>');
+          if(e.length > 0){
+            $(value).append('\n      <label class="checkbox">\n        <input type="checkbox" value="'+e+'">\n        '+e+'\n      </label>');
+          }
         });
         $(value).append("\n  ")
       } else if (vartype==="radios"){
         var radios = $(e).val().split("\n");
         $(value).html("\n      <!-- Multiple Radios -->");
         $.each(radios, function(i,e){
-          $(value).append('\n      <label class="radio">\n        <input type="radio" value="'+e+'">\n        '+e+'\n      </label>');
+          if(e.length > 0){
+            $(value).append('\n      <label class="radio">\n        <input type="radio" value="'+e+'">\n        '+e+'\n      </label>');
+          }
         });
         $(value).append("\n  ")
           $($(value).find("input")[0]).attr("checked", true)
@@ -243,14 +246,18 @@ $(document).ready(function(){
         var checkboxes = $(e).val().split("\n");
         $(value).html("\n      <!-- Inline Checkboxes -->");
         $.each(checkboxes, function(i,e){
-          $(value).append('\n      <label class="checkbox inline">\n        <input type="checkbox" value="'+e+'">\n        '+e+'\n      </label>');
+          if(e.length > 0){
+            $(value).append('\n      <label class="checkbox inline">\n        <input type="checkbox" value="'+e+'">\n        '+e+'\n      </label>');
+          }
         });
         $(value).append("\n  ")
       } else if (vartype==="inline-radios"){
         var radios = $(e).val().split("\n");
         $(value).html("\n      <!-- Inline Radios -->");
         $.each(radios, function(i,e){
-          $(value).append('\n      <label class="radio inline">\n        <input type="radio" value="'+e+'">\n        '+e+'\n      </label>');
+          if(e.length > 0){
+            $(value).append('\n      <label class="radio inline">\n        <input type="radio" value="'+e+'">\n        '+e+'\n      </label>');
+          }
         });
         $(value).append("\n  ")
           $($(value).find("input")[0]).attr("checked", true)
