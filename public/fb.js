@@ -167,8 +167,9 @@ $(document).ready(function(){
       $(".popover "+valID).text(val);
       } else if(valID==="#radios"){
         val = $.map($(e).find("label"), function(e,i){return $(e).text().trim()});
-        val = val.join("\n")
-      $(".popover "+valID).text(val);
+        val = val.join("\n");
+        $(".popover "+valID).text(val);
+        $(".popover #name").val($(e).find("input").attr("name"));
       } else if(valID==="#inline-checkboxes"){
         val = $.map($(e).find("label"), function(e,i){return $(e).text().trim()});
         val = val.join("\n")
@@ -177,6 +178,7 @@ $(document).ready(function(){
         val = $.map($(e).find("label"), function(e,i){return $(e).text().trim()});
         val = val.join("\n")
           $(".popover "+valID).text(val);
+        $(".popover #name").val($(e).find("input").attr("name"));
       } else if(valID==="#button") {
         val = $(e).text();
         var type = $(e).find("button").attr("class").split(" ").filter(function(e){return e.match(/btn-.*/)});
@@ -202,9 +204,8 @@ $(document).ready(function(){
     $(".popover").delegate(".btn-info", "click", function(e){
       e.preventDefault();
       var inputs = $(".popover input");
-      inputs.push($(".popover textarea")[0])
-      console.log(inputs);
-    $.each(inputs, function(i,e){
+      inputs.push($(".popover textarea")[0]);
+      $.each(inputs, function(i,e){
       var vartype = $(e).attr("id");
       var value = $active_component.find('[data-valtype="'+vartype+'"]')
       if(vartype==="placeholder"){
@@ -233,11 +234,12 @@ $(document).ready(function(){
         });
         $(value).append("\n  ")
       } else if (vartype==="radios"){
+        var group_name = $(".popover #name").val();
         var radios = $(e).val().split("\n");
         $(value).html("\n      <!-- Multiple Radios -->");
         $.each(radios, function(i,e){
           if(e.length > 0){
-            $(value).append('\n      <label class="radio">\n        <input type="radio" value="'+e+'">\n        '+e+'\n      </label>');
+            $(value).append('\n      <label class="radio">\n        <input type="radio" value="'+e+'" name="'+group_name+'">\n        '+e+'\n      </label>');
           }
         });
         $(value).append("\n  ")
@@ -253,10 +255,11 @@ $(document).ready(function(){
         $(value).append("\n  ")
       } else if (vartype==="inline-radios"){
         var radios = $(e).val().split("\n");
+        var group_name = $(".popover #name").val();
         $(value).html("\n      <!-- Inline Radios -->");
         $.each(radios, function(i,e){
           if(e.length > 0){
-            $(value).append('\n      <label class="radio inline">\n        <input type="radio" value="'+e+'">\n        '+e+'\n      </label>');
+            $(value).append('\n      <label class="radio inline">\n        <input type="radio" value="'+e+'" name="'+group_name+'">\n        '+e+'\n      </label>');
           }
         });
         $(value).append("\n  ")
