@@ -1,4 +1,4 @@
-require File.expand_path("../rack_try_static", __FILE__)
+require File.expand_path("../rack_static_host", __FILE__)
 
 use ::Rack::TryStatic,
   :root => "public",
